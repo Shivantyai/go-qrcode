@@ -1,4 +1,4 @@
-module github.com/yeqown/go-qrcode/writer/standard
+module github.com/Shivantyai/go-qrcode/writer/standard
 
 go 1.17
 
