@@ -1,8 +1,8 @@
 # go-qrcode #
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/yeqown/go-qrcode)](https://goreportcard.com/report/github.com/yeqown/go-qrcode) 
-[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/yeqown/go-qrcode/v2)
-[![Go](https://github.com/yeqown/go-qrcode/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/yeqown/go-qrcode/actions/workflows/go.yml) ![](https://changkun.de/urlstat?mode=github&repo=yeqown/go-qrcode)
+[![Go Report Card](https://goreportcard.com/badge/github.com/yeqown/go-qrcode)](https://goreportcard.com/report/github.com/yeqown/go-qrcode)
+[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square)](https://pkg.go.dev/github.com/Shivantyai/go-qrcode/v2)
+[![Go](https://github.com/Shivantyai/go-qrcode/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/Shivantyai/go-qrcode/actions/workflows/go.yml) ![](https://changkun.de/urlstat?mode=github&repo=yeqown/go-qrcode)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/yeqown/go-qrcode)
 ![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/yeqown/go-qrcode)
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
@@ -24,7 +24,7 @@ QR code (abbreviated from Quick Response Code) is the trademark for a type of ma
 ### Install
 
 ```sh
-go get -u github.com/yeqown/go-qrcode/v2
+go get -u github.com/Shivantyai/go-qrcode/v2
 ```
 
 ### Quick Start
@@ -34,8 +34,8 @@ link to [CODE](./example/main.go)
 package main
 
 import (
-	"github.com/yeqown/go-qrcode/v2"
-	"github.com/yeqown/go-qrcode/writer/standard"
+	"github.com/Shivantyai/go-qrcode/v2"
+	"github.com/Shivantyai/go-qrcode/writer/standard"
 )
 
 func main() {
@@ -44,13 +44,13 @@ func main() {
 		fmt.Printf("could not generate QRCode: %v", err)
 		return
 	}
-	
+
 	w, err := standard.New("../assets/repo-qrcode.jpeg")
 	if err != nil {
 		fmt.Printf("standard.New failed: %v", err)
 		return
 	}
-	
+
 	// save file
 	if err = qrc.Save(w); err != nil {
 		fmt.Printf("could not save image: %v", err)
@@ -80,13 +80,13 @@ func WithEncodingMode(mode encMode) EncodeOption {}
 const (
 	// ErrorCorrectionLow :Level L: 7% error recovery.
 	ErrorCorrectionLow ecLevel = iota + 1
-	
+
 	// ErrorCorrectionMedium :Level M: 15% error recovery. Good default choice.
 	ErrorCorrectionMedium
-	
+
 	// ErrorCorrectionQuart :Level Q: 25% error recovery.
 	ErrorCorrectionQuart
-	
+
 	// ErrorCorrectionHighest :Level H: 30% error recovery.
 	ErrorCorrectionHighest
 )
@@ -126,9 +126,9 @@ Of course, you can also code your own writer, just implement [Writer](./writer/R
 `go-qrcode.v2` is a major upgrade from v1, and it is not backward compatible. `v2` redesigned
 the API, and it is more flexible and powerful. Features are split into different modules (according to functionality).
 
-- github.com/yeqown/go-qrcode/v2 **_core_** 
-- github.com/yeqown/go-qrcode/writer/standard **_writer/imageFile_**
-- github.com/yeqown/go-qrcode/writer/terminal **_writer/terminal_**
+- github.com/Shivantyai/go-qrcode/v2 **_core_**
+- github.com/Shivantyai/go-qrcode/writer/standard **_writer/imageFile_**
+- github.com/Shivantyai/go-qrcode/writer/terminal **_writer/terminal_**
 
 Check [example/migrating-from-v1](./example/migrating-from-v1/main.go) for more details.
 
